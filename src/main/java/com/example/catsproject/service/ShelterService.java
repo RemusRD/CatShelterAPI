@@ -12,11 +12,9 @@ import java.util.List;
 public class ShelterService {
 
     private final ShelterRepository shelterRepository;
-    private CatRepository catRepository;
 
-    public ShelterService(ShelterRepository shelterRepository, CatRepository CatRepository) {
+    public ShelterService(ShelterRepository shelterRepository) {
         this.shelterRepository = shelterRepository;
-        this.catRepository = catRepository;
     }
 
     public CatShelter createShelter(CatShelter newCatShelter) {

@@ -3,7 +3,6 @@ package com.example.catsproject.model;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import java.util.List;
 
 @Getter
@@ -17,8 +16,8 @@ public class Volunteer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    Column
     private String name;
-    @Min(value = 16)
     private int age;
     private String sheltername;
 }

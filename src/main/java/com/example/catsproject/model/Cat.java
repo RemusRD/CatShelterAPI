@@ -1,5 +1,4 @@
 package com.example.catsproject.model;
-import com.sun.istack.NotNull;
 import lombok.*;
 import javax.persistence.*;
 import java.util.List;
@@ -13,16 +12,14 @@ import java.util.List;
 @Entity
 public class Cat {
     @Id
-
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotNull
+    @Column(nullable = false)
     private String name;
     private int age;
     @Enumerated(EnumType.STRING)
     private CatBreed breed;
-
-     @ManyToOne
+    @ManyToOne
     private CatShelter catShelter;
 
 

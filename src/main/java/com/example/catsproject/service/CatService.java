@@ -17,11 +17,9 @@ public class CatService {
 
     private final CatRepository catRepository;
 
-    private final FeedService feedService;
 
-    public CatService(CatRepository catRepository, FeedService feedService) {
+    public CatService(CatRepository catRepository) {
         this.catRepository = catRepository;
-        this.feedService = feedService;
     }
 
     public List<Cat> findAll() {

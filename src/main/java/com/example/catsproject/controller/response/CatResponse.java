@@ -4,11 +4,9 @@ import com.example.catsproject.model.CatBreed;
 import lombok.*;
 
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
-public class CatResponse {
+public class CatResponse { 
     private Long id;
     private String name;
     private int age;

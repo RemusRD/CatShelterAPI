@@ -10,6 +10,12 @@ I create 5 packages:"model","service","controller","repository","utili" and "exc
 - Then, create a new database in MySQL
 - create an account in https://hub.docker.com/
 
+# How to run the application
+
+-- mvn clean install
+-- build docker file 
+-- docker-compose up...
+
 ## 💡Important notes:
 - In order to put api running you need to install docker https://docs.docker.com/get-docker/
 

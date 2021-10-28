@@ -18,7 +18,7 @@ public class CatBed {
     private String color;
 
     @OneToOne
-    private CatBed catBeds;
+    private CatBed catBed;
 
     @OneToOne
     private Cat cat;

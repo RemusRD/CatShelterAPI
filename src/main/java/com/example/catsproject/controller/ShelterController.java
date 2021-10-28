@@ -19,8 +19,8 @@ public class ShelterController {
     }
 
     //Create a shelter
-    @PostMapping(value = "/shelter", consumes = "application/json")
-    public CatShelter createShelter(@RequestBody @Valid ShelterRequest shelterRequest) {
+    @PostMapping(value = "/shelters")
+    public CatShelter createShelter(@RequestBody @Valid ShelterRequest shelterRequest) { // -> ShelterRespopnse
 
         CatShelter newCatShelter = CatShelter
                 .builder()
@@ -29,18 +29,20 @@ public class ShelterController {
                 .volunteers(shelterRequest.getVolunteers())
                 .build();
 
-        return shelterService.createShelter(newCatShelter);
+        final CatShelter shelter =  shelterService.createShelter(newCatShelter);
+        return new ShelterRespopnse(shelter.get....)
+        //map to ShelterRespopnse 
     }
 
     //Delete by ID
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/shelters/{id}")
     public void deleteCatShelter(@PathVariable(value = "id") Long catShelterId) {
         shelterService.deleteById(catShelterId);
     }
 
-    //Read all the volunteers
-    @GetMapping("/shelter/{id}")
-    public List<CatShelter> ShelterList() {
+    //Read all the shelters
+    @GetMapping("/shelters")
+    public List<CatShelter> ShelterList() { // -> List<ShelterRespopnse>
         return shelterService.findAll();
     }
 }

@@ -1,6 +1,6 @@
 package com.example.catsproject.exception;
 
-public class CatException extends Exception {
+public class CatException extends Exception { //Do not use checked exceptions, instead, extend RuntimeException
     public CatException() {
         super();
     }

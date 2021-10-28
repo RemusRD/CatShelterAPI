@@ -20,8 +20,8 @@ public class VolunteerController {
         this.volunteerService = volunteerService;
     }
 
-    @PostMapping(value = "/volunteer", consumes = "application/json")
-    public Volunteer createVolunteer(@RequestBody @Valid VolunteerRequest volunteerRequest) {
+    @PostMapping(value = "/volunteers")
+    public Volunteer createVolunteer(@RequestBody @Valid VolunteerRequest volunteerRequest) { // VolunteerResponse
         Volunteer newVolunteer = Volunteer
                 .builder()
                 .name(volunteerRequest.getName())

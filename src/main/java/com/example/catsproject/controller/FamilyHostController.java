@@ -25,13 +25,16 @@ public class FamilyHostController {
 
     //Read All
     @GetMapping(value = "/cats")
-    public List<Cat> getCats() {
-        return catService.findAll();
+    public List<CatResponse> getCats() { //List<Cat> -> List<CatResponse>
+        final List<Cat> cats =  catService.findAll();
+        List<CatResponse> catsReponses = new ArrayList<CatResponse>();
+        //fore -> add to catResponses
+        return catsReponses;
     }
 
     //Create a new cat
-    @PostMapping(value = "/cat", consumes = "application/json")
-    public CatResponse addCat(@RequestBody @Valid CatRequest catRequest) throws CatException {
+    @PostMapping(value = "/cat")
+    public CatResponse addCat(@RequestBody @Valid CatRequest catRequest) {
         Cat newcat = catService.addCat(Cat.builder()
                 .name(catRequest.getName())
                 .age(catRequest.getAge())
@@ -41,8 +44,8 @@ public class FamilyHostController {
         return new CatResponse(newcat.getId(), newcat.getName(), newcat.getAge(), newcat.getBreed());
     }
 
-    @GetMapping("/cats-breed/{breed}")
-    public List<CatResponse> getCatByBreed(@PathVariable(value = "breed") String breed) {
+    @GetMapping("/cats") // GET /cats?breed=bla
+    public List<CatResponse> getCatByBreed(@PathParam(value = "breed") String breed) {
         List<Cat> catList = catService.findByBreed(breed);
         List<CatResponse> catResponseList = new ArrayList<>();
         for (Cat cat : catList) {
@@ -51,7 +54,7 @@ public class FamilyHostController {
         return catResponseList;
     }
     @PutMapping("/cats/{id}")
-    public CatResponse updateCat(@RequestBody CatRequest catRequest, @PathVariable(value="id")String id){
+    public CatResponse updateCat(@RequestBody @Valid CatRequest catRequest, @PathVariable(value="id")String id){
         Cat cat =catService.updateCat(
                 id,
                 catRequest.getName(),
