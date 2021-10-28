@@ -1,4 +1,4 @@
-package com.example.catsproject.request;
+package com.example.catsproject.controller.request;
 
 import com.example.catsproject.model.CatBreed;
 import lombok.*;
@@ -11,9 +11,8 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CreateNewCatHF {
- @Enumerated
-    private CatBreed catBreed;
-    @NotBlank
-    private String name;
+public class CatRequest {
+private String name;
+ private int age;
+ private CatBreed catBreed;
 }

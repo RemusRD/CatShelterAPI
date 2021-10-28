@@ -17,12 +17,8 @@ public class Volunteer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
-
     @Min(value = 16)
     private int age;
-
     private String sheltername;
-
 }

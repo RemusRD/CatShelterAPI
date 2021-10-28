@@ -8,9 +8,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>backend-shelter</artifactId>
+	<artifactId>cats-project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>backend-shelter</name>
+	<name>cats-project</name>
 	<description>Shelter project</description>
 	<properties>
 		<java.version>11</java.version>

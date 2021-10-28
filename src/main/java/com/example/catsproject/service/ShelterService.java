@@ -1,5 +1,6 @@
 package com.example.catsproject.service;
 
+import com.example.catsproject.controller.response.ShelterResponse;
 import com.example.catsproject.model.CatShelter;
 import com.example.catsproject.repository.CatRepository;
 import com.example.catsproject.repository.ShelterRepository;
@@ -19,12 +20,10 @@ public class ShelterService {
     }
 
     public CatShelter createShelter(CatShelter newCatShelter) {
-
         return shelterRepository.save(newCatShelter);
     }
 
     public void deleteById(Long catShelterId) {
-
         shelterRepository.deleteById(catShelterId);
     }
 

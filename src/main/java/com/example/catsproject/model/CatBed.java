@@ -15,7 +15,6 @@ public class CatBed {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-
     private String color;
 
     @OneToOne
@@ -23,5 +22,4 @@ public class CatBed {
 
     @OneToOne
     private Cat cat;
-
 }

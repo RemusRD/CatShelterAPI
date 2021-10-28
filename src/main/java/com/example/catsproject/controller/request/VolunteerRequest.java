@@ -1,4 +1,4 @@
-package com.example.catsproject.request;
+package com.example.catsproject.controller.request;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CreateVolunteerRQ {
+public class VolunteerRequest {
     private String name;
     private int age;
     private String sheltername;

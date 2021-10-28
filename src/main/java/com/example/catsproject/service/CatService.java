@@ -3,6 +3,7 @@ package com.example.catsproject.service;
 
 import com.example.catsproject.exception.CatException;
 import com.example.catsproject.model.Cat;
+import com.example.catsproject.model.CatBreed;
 import com.example.catsproject.repository.CatRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,6 @@ public class CatService {
     public CatService(CatRepository catRepository, FeedService feedService) {
         this.catRepository = catRepository;
         this.feedService = feedService;
-
     }
 
     public List<Cat> findAll() {
@@ -29,12 +29,8 @@ public class CatService {
         return catRepository.findAll();
     }
 
-    public Cat save(Cat cat) throws CatException {
-        if (this.CheckIfCatIsOnShelter(cat)) {
-            throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Cat is already on database.");
-        }
-        return this.catRepository.save(cat);
+    public Cat addCat(Cat newcat) {
+        return catRepository.save(newcat);
     }
 
    // Checks if an Cat exists in the database
@@ -45,11 +41,21 @@ public class CatService {
         }
         return this.catRepository.existsById(cat.getId());
     }
+//
+//    public Cat findById(String id) {
+//        return catRepository.findById(id).get();
+//  }
 
-    public Cat findById(Long id) {
-
-        return catRepository.findById(id).get();
+    public List<Cat> findByBreed(String breed) {
+        return catRepository.findByBreed((CatBreed.valueOf(breed)));
     }
+
+    public Cat updateCat(String id, String name, int age, CatBreed catBreed) {
+        return catRepository.saveAll();
+    }
+
+
+
 }
 
 

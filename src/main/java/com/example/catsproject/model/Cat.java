@@ -16,10 +16,9 @@ public class Cat {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @NotNull
     private String name;
-    private String age;
+    private int age;
     @Enumerated(EnumType.STRING)
     private CatBreed breed;
 
